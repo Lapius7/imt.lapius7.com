@@ -11,7 +11,7 @@ import { createHash } from "node:crypto";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import kuromoji from "kuromoji";
+import kuromoji, { type IpadicFeatures, type Tokenizer } from "kuromoji";
 import { ALPHABET, isSeion, katakanaToHiragana, toSeion } from "../shared/kana.ts";
 
 const SOURCE_URL = "https://www.aozora.gr.jp/cards/000035/files/1567_14913.html";
@@ -67,7 +67,7 @@ for (const [from, to] of MANUAL_READINGS) {
 const paragraphs = body.split("\n").map((p) => p.trim()).filter(Boolean);
 
 // --- 形態素解析 ---
-const tokenizer = await new Promise<kuromoji.Tokenizer<kuromoji.IpadicFeatures>>((ok, ng) => {
+const tokenizer = await new Promise<Tokenizer<IpadicFeatures>>((ok, ng) => {
   kuromoji.builder({ dicPath: resolve(root, "node_modules/kuromoji/dict") }).build((e, t) => (e ? ng(e) : ok(t)));
 });
 
