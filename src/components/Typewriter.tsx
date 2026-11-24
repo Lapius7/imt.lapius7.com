@@ -37,12 +37,16 @@ export function Typewriter({
     <Card>
       <CardHeader className="flex items-center justify-between gap-3">
         <CardTitle className="text-base leading-6">いま生成されている文字</CardTitle>
-        <Badge variant="outline" className="gap-1.5 leading-4" aria-live="polite">
-          <span
+        <Badge variant="outline" className="leading-4" aria-live="polite">
+          <svg
             aria-hidden
-            className={`size-1.5 shrink-0 rounded-full ${connection === "open" ? "bg-match" : "bg-muted-foreground"}`}
-          />
-          {completed ? "完了" : connLabel[connection]}
+            data-icon="inline-start"
+            viewBox="0 0 6 6"
+            className={`${connection === "open" ? "text-match" : "text-muted-foreground"}`}
+          >
+            <circle cx="3" cy="3" r="3" fill="currentColor" />
+          </svg>
+          <span className="translate-y-[0.5px]">{completed ? "完了" : connLabel[connection]}</span>
         </Badge>
       </CardHeader>
       <CardContent>
