@@ -1,6 +1,6 @@
 {
   "name": "imt",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "description": "無限の猿定理シミュレータ。1秒に1文字、ランダムなひらがなを生成して『走れメロス』の全文一致を待つ",
