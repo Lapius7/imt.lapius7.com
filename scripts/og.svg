@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-  <rect width="1200" height="630" fill="#fafafa"/>
-  <text x="80" y="170" font-family="Inter, Noto Sans CJK JP, sans-serif" font-size="34" fill="#16a34a" letter-spacing="14">ひ き れ さ ぬ ろ め も ふ</text>
-  <text x="80" y="330" font-family="Inter, Noto Sans CJK JP, sans-serif" font-size="92" font-weight="700" fill="#18181b">無限の猿定理シミュレータ</text>
-  <text x="80" y="415" font-family="Inter, Noto Sans CJK JP, sans-serif" font-size="38" fill="#52525b">1 秒に 1 文字、ランダムなひらがなを生成して</text>
-  <text x="80" y="467" font-family="Inter, Noto Sans CJK JP, sans-serif" font-size="38" fill="#52525b">『走れメロス』の全文一致を待ち続けます。</text>
-  <text x="80" y="570" font-family="Inter, Noto Sans CJK JP, sans-serif" font-size="30" fill="#71717a">imt.lapius7.com</text>
-</svg>

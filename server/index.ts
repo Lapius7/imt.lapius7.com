@@ -56,6 +56,13 @@ app.get("/api/target", (c) => {
   return c.text(config.target.join(""));
 });
 
+const textJson = await Bun.file(`${config.root}/data/text.json`).text();
+app.get("/api/text", (c) => {
+  c.header("Cache-Control", "public, max-age=3600");
+  c.header("Content-Type", "application/json; charset=UTF-8");
+  return c.body(textJson);
+});
+
 app.get("/api/recent", async (c) => {
   const limit = Math.min(Math.max(Number(c.req.query("limit")) || 600, 1), 2000);
   const beforeQ = c.req.query("before");
@@ -94,6 +101,8 @@ app.use("/assets/*", async (c, next) => {
 });
 app.use("/*", serveStatic({ root: dist }));
 app.get("/", serveStatic({ path: `${dist}/index.html` }));
+app.get("/text/", (c) => c.redirect("/text", 301));
+app.get("/text", serveStatic({ path: `${dist}/text.html` }));
 app.notFound((c) => c.text("見つかりません", 404));
 
 const server = Bun.serve({ port: config.port, hostname: "127.0.0.1", idleTimeout: 255, fetch: app.fetch });

@@ -29,6 +29,9 @@ export default function App() {
           <h1 className="text-2xl leading-9 font-semibold sm:text-3xl sm:leading-10">無限の猿定理シミュレータ</h1>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
             1 秒に 1 文字、ランダムなひらがなを生成し続けて、太宰治『走れメロス』の全文と一致する日を待ちます。サーバーが 1 か所で動かしているので、誰が見ても同じ状態です。
+            <a href="/text" className="ml-1 underline underline-offset-4 hover:text-foreground">
+              走れメロスの全文を読む
+            </a>
           </p>
         </div>
         <ThemeToggle />
