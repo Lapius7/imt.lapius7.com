@@ -1,0 +1,17 @@
+# ローカル確認用の MySQL(本番と同じ 8.0)。パスワードは環境変数 MYSQL_PASSWORD で渡す。
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: imt-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD:?MYSQL_PASSWORD を設定する}
+      MYSQL_DATABASE: imt
+      MYSQL_USER: imt
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "127.0.0.1:3318:3306"
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_bin"]
+    volumes:
+      - imt-mysql-data:/var/lib/mysql
+volumes:
+  imt-mysql-data:
